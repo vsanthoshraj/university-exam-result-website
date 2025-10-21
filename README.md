@@ -11,17 +11,8 @@ text
 
 A production-ready Flask web application for **Chennai University** that enables students to securely check their semester exam results using Registration Number and Date of Birth authentication.
 
-## 🌐 perview
-
-
-
-
-
-
-
-**Test Credentials:**
-- Registration Number: `CSE2025001`
-- Date of Birth: `2002-05-15`
+##  perview
+see the pngs
 
 ---
 
