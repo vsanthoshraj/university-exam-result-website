@@ -1,17 +1,64 @@
 # 🎓 College Exam Result Management System
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![Status](https://img.shields.io/badge/Status-Live-brightgreen)
+![AWS](https://img.shields.io/badge/AWS-EC2%20%7C%20ALB%20%7C%20Route53-orange)
+![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![Flask](https://img.shields.io/badge/Flask-2.3.3-green.svg)
-![MySQL](https://img.shields.io/badge/MySQL-8.0-orange.svg)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-blue.svg)
+![HTTPS](https://img.shields.io/badge/HTTPS-Enabled-success)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 A production-ready Flask web application for **Chennai University** that enables students to securely check their semester exam results using Registration Number and Date of Birth authentication.
 
+## 🚀 Quick Start
+
+### Access Live Application
+Visit: [**https://domain.digitalplat.org**](https://domain.digitalplat.org)
+
+**Test Credentials:**
+- Registration Number: `CSE2025001`
+- Date of Birth: `2002-05-15`
+
+### Local Development
+
+
 ## 🌐 Live Demo
 
-**Application URL:** `http://your-ec2-public-ip`
+**Production URL:** https://domain.digitalplat.org
 
+**Note:** The application is deployed on AWS with:
+- Application Load Balancer (HTTPS)
+- Auto-scaling capability
+- SSL Certificate (AWS ACM)
+- Route 53 DNS
 ---
+## 🏗️ Architecture
+User Browser
+↓ HTTPS
+Route 53 DNS (domain.digitalplat.org)
+↓
+Application Load Balancer (SSL/TLS)
+↓ HTTP
+Target Group
+↓
+EC2 Instance (us-east-2)
+├─ Apache 2.4.58
+├─ Flask + WSGI
+└─ MySQL 8.0
+
+
+**Production Stack:**
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Backend:** Python 3.10 + Flask 2.3.3
+- **Database:** MySQL 8.0
+- **Web Server:** Apache 2.4 with mod_wsgi
+- **Load Balancer:** AWS Application Load Balancer
+- **SSL Certificate:** AWS Certificate Manager (ACM) - Auto-renewing
+- **DNS:** AWS Route 53
+- **Hosting:** AWS EC2 (Ohio - us-east-2)
+- **OS:** Ubuntu 22.04 LTS
+
+
 
 ## ✨ Features
 
