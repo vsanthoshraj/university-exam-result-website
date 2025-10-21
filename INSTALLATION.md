@@ -587,3 +587,28 @@ For additional help:
 ---
 
 **Installation guide last updated:** October 2025
+
+
+
+## AWS EC2 + ALB Production Deployment
+
+### Prerequisites
+- AWS Account
+- Domain name
+- Basic AWS knowledge
+
+### Step 1: Request ACM Certificate
+1. AWS Certificate Manager → Request certificate
+2. Add domain name: `your-domain.com`
+3. DNS validation
+4. Wait for "Issued" status
+
+### Step 2: Create Application Load Balancer
+[Detailed steps...]
+
+### Step 3: Configure Route 53
+[Detailed steps...]
+
+### Step 4: Deploy Application
+[Detailed steps...]
+
