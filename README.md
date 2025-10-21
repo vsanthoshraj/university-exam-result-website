@@ -1,13 +1,11 @@
 text
 # 🎓 College Exam Result Management System
 
-![Status](https://img.shields.io/badge/Status-Live-brightgreen)
 ![AWS](https://img.shields.io/badge/AWS-EC2%20%7C%20ALB%20%7C%20Route53-orange)
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![Flask](https://img.shields.io/badge/Flask-2.3.3-green.svg)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-blue.svg)
 ![HTTPS](https://img.shields.io/badge/HTTPS-Enabled-success)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 A production-ready Flask web application for **Chennai University** that enables students to securely check their semester exam results using Registration Number and Date of Birth authentication.
 
