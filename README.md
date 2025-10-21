@@ -11,9 +11,13 @@ text
 
 A production-ready Flask web application for **Chennai University** that enables students to securely check their semester exam results using Registration Number and Date of Birth authentication.
 
-## 🌐 Live Demo
+## 🌐 perview
 
-**Production URL:** [https://domain.digitalplat.org](https://domain.digitalplat.org)
+
+
+
+
+
 
 **Test Credentials:**
 - Registration Number: `CSE2025001`
