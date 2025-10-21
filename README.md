@@ -1,3 +1,4 @@
+text
 # 🎓 College Exam Result Management System
 
 ![Status](https://img.shields.io/badge/Status-Live-brightgreen)
@@ -10,29 +11,31 @@
 
 A production-ready Flask web application for **Chennai University** that enables students to securely check their semester exam results using Registration Number and Date of Birth authentication.
 
-## 🚀 Quick Start
+## 🌐 Live Demo
 
-### Access Live Application
-Visit: [**https://domain.digitalplat.org**](https://domain.digitalplat.org)
+**Production URL:** [https://domain.digitalplat.org](https://domain.digitalplat.org)
 
 **Test Credentials:**
 - Registration Number: `CSE2025001`
 - Date of Birth: `2002-05-15`
 
-### Local Development
-
-
-## 🌐 Live Demo
-
-**Production URL:** https://domain.digitalplat.org
-
-**Note:** The application is deployed on AWS with:
-- Application Load Balancer (HTTPS)
-- Auto-scaling capability
-- SSL Certificate (AWS ACM)
-- Route 53 DNS
 ---
+
+## ✨ Features
+
+- 🔐 **Secure Authentication** - Registration Number + Date of Birth verification
+- 📊 **Detailed Results** - Subject-wise marks (Internal, External, Total, Grade, Pass/Fail)
+- 📈 **Summary Statistics** - Total marks, percentage, overall grade, result status
+- 🖨️ **Print-Friendly** - Save or print results as PDF directly from browser
+- 📱 **Responsive Design** - Works seamlessly on desktop, tablet, and mobile
+- ✅ **Input Validation** - Both client-side and server-side validation
+- 🛠️ **Admin Utilities** - CLI tools for managing students and results
+- 🎨 **Modern UI** - Clean, professional interface with smooth animations
+
+---
+
 ## 🏗️ Architecture
+
 User Browser
 ↓ HTTPS
 Route 53 DNS (domain.digitalplat.org)
@@ -46,9 +49,10 @@ EC2 Instance (us-east-2)
 ├─ Flask + WSGI
 └─ MySQL 8.0
 
+text
 
 **Production Stack:**
-- **Frontend:** HTML5, CSS3, JavaScript
+- **Frontend:** HTML5, CSS3, JavaScript (ES6)
 - **Backend:** Python 3.10 + Flask 2.3.3
 - **Database:** MySQL 8.0
 - **Web Server:** Apache 2.4 with mod_wsgi
@@ -58,150 +62,60 @@ EC2 Instance (us-east-2)
 - **Hosting:** AWS EC2 (Ohio - us-east-2)
 - **OS:** Ubuntu 22.04 LTS
 
-
-
-## ✨ Features
-
-- 🔐 **Secure Authentication** - Registration Number + Date of Birth verification
-- 📊 **Detailed Results** - Subject-wise marks with Internal, External, Total, Grade, and Pass/Fail status
-- 📈 **Summary Statistics** - Total marks, maximum marks, percentage, overall grade, and result status
-- 🖨️ **Print-Friendly** - Save or print results as PDF directly from browser
-- 📱 **Responsive Design** - Works seamlessly on desktop, tablet, and mobile devices
-- ✅ **Input Validation** - Both client-side and server-side validation
-- 🛠️ **Admin Utilities** - CLI tools for managing students, results, and data export
-- 🎨 **Modern UI** - Clean, professional interface with smooth animations
-
 ---
 
-## 🛠️ Tech Stack
+## 🚀 Quick Start
 
-### Backend
-- **Python 3.8+** - Programming language
-- **Flask 2.3.3** - Web framework
-- **Flask-MySQLdb 1.0.1** - MySQL database integration
-- **Gunicorn 20.1.0** - WSGI HTTP server
+### Local Development
 
-### Frontend
-- **HTML5** - Semantic markup
-- **CSS3** - Modern styling with gradients and animations
-- **JavaScript (ES6)** - Dynamic client-side interactions
+Clone repository
+git clone https://github.com/vsanthoshraj/university-exam-result-management-system.git
+cd university-exam-result-management-system
 
-### Database
-- **MySQL 8.0** - Relational database management
+Create virtual environment
+python3 -m venv venv
+source venv/bin/activate # Windows: venv\Scripts\activate
 
-### Deployment
-- **Apache2 2.4** - Web server with mod_wsgi
-- **Ubuntu 22.04 LTS** - Server operating system
-- **AWS EC2** - Cloud hosting platform
+Install dependencies
+pip install -r requirements.txt
+
+Setup MySQL database
+mysql -u root -p < database_schema.sql
+
+Configure application
+cp config.example.py config.py
+nano config.py # Update with your MySQL credentials
+
+Run application
+python3 app.py
+
+text
+
+Visit: `http://localhost:5000`
+
+### Production Deployment
+
+For AWS EC2 + ALB deployment, see [INSTALLATION.md](INSTALLATION.md)
 
 ---
 
 ## 📁 Project Structure
 
-college-exam-result-system/
+university-exam-result-management-system/
 ├── app.py # Main Flask application
-├── config.py # Database and app configuration (not in repo)
+├── admin_utils.py # CLI admin utilities
 ├── config.example.py # Configuration template
 ├── requirements.txt # Python dependencies
-├── database_schema.sql # MySQL database schema with sample data
-├── admin_utils.py # CLI utilities for admin tasks
-├── index.html # Main HTML page
+├── database_schema.sql # MySQL schema with sample data
+├── index.html # Frontend HTML
 ├── styles.css # Application styles
 ├── script.js # Frontend JavaScript
 ├── README.md # This file
 ├── INSTALLATION.md # Detailed installation guide
-├── .gitignore # Git ignore configuration
+├── .gitignore # Git ignore rules
 └── LICENSE # MIT License
 
-
-
----
-
-## 📦 Prerequisites
-
-### For Local Development
-- Python 3.8 or higher
-- MySQL 8.0 or higher
-- pip (Python package manager)
-- virtualenv (recommended)
-
-### For Production Deployment
-- Ubuntu 22.04 LTS server
-- Apache2 with mod_wsgi
-- MySQL Server 8.0
-- Domain name (optional)
-- SSL certificate (recommended for HTTPS)
-
----
-
-## 🚀 Quick Start
-
-### 1. Clone Repository
-
-git clone https://github.com/vsanthoshraj/university-exam-result-management-system.git
-cd university-exam-result-management-system
-
-
-### 2. Create Virtual Environment
-
-python3 -m venv venv
-source venv/bin/activate # On Windows: venv\Scripts\activate
-
-### 3. Install Dependencies
-
-pip install --upgrade pip
-pip install -r requirements.txt
-
-
-### 4. Setup MySQL Database
-Login to MySQL
-mysql -u root -p
-
-Create database and user
-CREATE DATABASE college_results CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'collegeuser'@'localhost' IDENTIFIED BY 'your_secure_password';
-GRANT ALL PRIVILEGES ON college_results.* TO 'collegeuser'@'localhost';
-FLUSH PRIVILEGES;
-EXIT;
-
-Import schema
-mysql -u collegeuser -p college_results < database_schema.sql
-
-
-### 5. Configure Application
-
-Copy configuration template
-cp config.example.py config.py
-
-Edit with your database credentials
-nano config.py
-
-Update `config.py`:
-
-MYSQL_HOST = 'localhost'
-MYSQL_USER = 'collegeuser'
-MYSQL_PASSWORD = 'your_secure_password'
-MYSQL_DB = 'college_results'
-DEBUG = True # Set to False in production
-
-
-### 6. Run Application
-python3 app.py
-
-Visit: `http://localhost:5000`
-
----
-
-## 🌐 Production Deployment
-
-### AWS EC2 Deployment
-
-For complete production deployment on AWS EC2 with Apache2, see [INSTALLATION.md](INSTALLATION.md)
-
-**Quick Deployment with User Data Script:**
-- Launch Ubuntu 22.04 EC2 instance
-- Use the automated User Data script included in the repository
-- Access your application at `http://your-ec2-public-ip`
+text
 
 ---
 
@@ -209,21 +123,18 @@ For complete production deployment on AWS EC2 with Apache2, see [INSTALLATION.md
 
 ### For Students
 
-1. Visit the application URL
-2. Enter your **Registration Number** (e.g., CSE2025001)
-3. Select your **Date of Birth**
+1. Visit [https://domain.digitalplat.org](https://domain.digitalplat.org)
+2. Enter **Registration Number**
+3. Select **Date of Birth**
 4. Click **"Check Result"**
-5. View your detailed results and summary
-6. Print or save as PDF if needed
+5. View detailed results and summary
 
 ### For Administrators
-
-Use the CLI admin utilities to manage data:
 
 Activate virtual environment
 source venv/bin/activate
 
-Add a new student
+Add new student
 python3 admin_utils.py add-student
 --name "John Doe"
 --reg "CSE2025001"
@@ -233,7 +144,7 @@ python3 admin_utils.py add-student
 --year "2024-25"
 --dob "2002-05-15"
 
-Update student results
+Update results
 python3 admin_utils.py update-result
 --reg "CSE2025001"
 --subject "CSE401"
@@ -241,9 +152,10 @@ python3 admin_utils.py update-result
 --external 65
 --grade "A"
 
-Export results to CSV
+Export to CSV
 python3 admin_utils.py export-csv --output results.csv
 
+text
 
 ---
 
@@ -251,163 +163,114 @@ python3 admin_utils.py export-csv --output results.csv
 
 ### Check Result Endpoint
 
-**URL:** `/check-result`  
-**Method:** `POST`  
+**Endpoint:** `POST /check-result`  
 **Content-Type:** `application/json`
 
-**Request Body:**
+**Request:**
 {
 "registration_number": "CSE2025001",
 "date_of_birth": "2002-05-15"
 }
 
+text
 
-**Success Response (200 OK):**
-
+**Response (200 OK):**
 {
 "success": true,
 "student": {
 "name": "John Doe",
 "registration_number": "CSE2025001",
-"roll_number": "21CSE001",
 "course": "Computer Science Engineering",
-"semester": 4,
-"academic_year": "2024-25"
+"semester": 4
 },
 "results": [
 {
 "subject_code": "CSE401",
 "subject_name": "Data Structures",
-"internal_marks": 18,
-"external_marks": 65,
 "total_marks": 83,
-"max_marks": 100,
 "grade": "A",
 "status": "Pass"
 }
 ],
 "summary": {
 "total_marks": 250,
-"max_marks": 300,
 "percentage": 83.33,
 "overall_grade": "A",
 "result": "Pass"
 }
 }
 
-
-**Error Response (404 Not Found):**
-{
-"success": false,
-"message": "No results found. Please check your registration number and date of birth."
-}
-
+text
 
 ---
 
 ## 🗄️ Database Schema
 
-### Tables
+**Tables:**
+- `courses` - Course information
+- `subjects` - Subject details with max marks
+- `students` - Student enrollment information
+- `results` - Exam results with marks and grades
 
-1. **courses** - Course information (Computer Science, Mechanical, etc.)
-2. **subjects** - Subject details with course mapping and max marks
-3. **students** - Student personal and enrollment information
-4. **results** - Student exam results with marks and grades
-
-### Entity Relationships
-
+**Relationships:**
 - `subjects.course_id` → `courses.course_id`
 - `students.course_id` → `courses.course_id`
 - `results.student_id` → `students.student_id`
 - `results.subject_id` → `subjects.subject_id`
 
-For detailed schema, see `database_schema.sql`.
+See `database_schema.sql` for complete schema.
 
 ---
 
-## 🔒 Security Features
+## 🔒 Security
 
-- ✅ **SQL Injection Prevention** - Parameterized queries with MySQLdb
-- ✅ **Input Validation** - Client-side and server-side validation
-- ✅ **Secure Password Handling** - MySQL credentials in config (not in repo)
-- ✅ **No Sensitive Data Exposure** - Passwords and keys protected via .gitignore
-- ✅ **CSRF Protection** - Recommended to enable for production
-- ⚠️ **HTTPS** - Strongly recommended for production deployment
-
----
-
-## 🧪 Testing
-
-### Test with Sample Data
-
-The `database_schema.sql` includes sample test data:
-
-- **Student Name:** John Doe
-- **Registration Number:** CSE2025001
-- **Date of Birth:** 2002-05-15
-
-Use these credentials to test the application after setup.
+- ✅ HTTPS enforced with AWS ACM certificate
+- ✅ SQL injection prevention (parameterized queries)
+- ✅ Input validation (client & server-side)
+- ✅ Sensitive data protected (.gitignore)
+- ✅ Security headers (X-Frame-Options, X-XSS-Protection)
+- ✅ EC2 restricted to ALB traffic only
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please follow these steps:
+Contributions are welcome!
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open Pull Request
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
 ## 👨‍💻 Author
 
 **Santhosh Raj V**
-
-- **GitHub:** [@vsanthoshraj](https://github.com/vsanthoshraj)
-- **Email:** santhoshrajv10@gmail.com
-- **Repository:** [university-exam-result-management-system](https://github.com/vsanthoshraj/university-exam-result-management-system)
-
----
-
-## 🙏 Acknowledgments
-
-- Built with **Flask** and **MySQL**
-- Deployed on **AWS EC2** with **Apache2**
-- UI inspired by modern web design principles
-- Sample data structure based on Indian university grading system
+- GitHub: [@vsanthoshraj](https://github.com/vsanthoshraj)
+- Email: santhoshrajv10@gmail.com
+- Repository: [university-exam-result-management-system](https://github.com/vsanthoshraj/university-exam-result-management-system)
 
 ---
 
 ## 📞 Support
 
-For issues, questions, or suggestions:
 - **GitHub Issues:** [Open an issue](https://github.com/vsanthoshraj/university-exam-result-management-system/issues)
 - **Email:** santhoshrajv10@gmail.com
-- **Documentation:** See [INSTALLATION.md](INSTALLATION.md) for detailed setup instructions
+- **Documentation:** See [INSTALLATION.md](INSTALLATION.md)
 
 ---
 
 ## ⭐ Star This Repository
 
-If you find this project useful, please give it a ⭐ on GitHub!
-
----
-
-## 📊 Project Statistics
-
-![GitHub last commit](https://img.shields.io/github/last-commit/vsanthoshraj/university-exam-result-management-system)
-![GitHub issues](https://img.shields.io/github/issues/vsanthoshraj/university-exam-result-management-system)
-![GitHub stars](https://img.shields.io/github/stars/vsanthoshraj/university-exam-result-management-system)
-![GitHub forks](https://img.shields.io/github/forks/vsanthoshraj/university-exam-result-management-system)
+If you find this project useful, please give it a star on GitHub!
 
 ---
 
